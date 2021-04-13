@@ -99,10 +99,17 @@ public class GeneticProgramming {
         // 染色体，起始城市,城市1,城市2...城市n
         for (int i = 0; i < LL; i++) {
             if (chromosome[i] == 1) {
-                int temp=random.nextInt(65535) % 3;
-                vv+=v[i][temp];
-                bb+=b[i][temp];
-                str[i]=temp+1;
+                int temp=random.nextInt(65535) % 32;
+                if(temp<2) {
+                    vv += v[i][temp];
+                    bb += b[i][temp];
+                    str[i] = temp + 1;
+                }
+                else{
+                    vv += v[i][2];
+                    bb += b[i][2];
+                    str[i] = 3;
+                }
             }
             else {
                 str[i]=0;
